@@ -3,13 +3,21 @@
  */
 package edu.ups.pap;
 
+import edu.ups.pap.creacionales.AbstractFactoryDemo;
+
 public class App {
     public String getGreeting() {
-        return "-----------Trabajo en Casa Programación Aplicada -----------";
+        return "-----------Trabajo en Casa Programación Aplicada -----------" ;
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        runAbstractFactory();
     }
-    
+
+    public static void  runAbstractFactory(){
+        AbstractFactoryDemo.ejecutar();
+    }
+
+
 }
