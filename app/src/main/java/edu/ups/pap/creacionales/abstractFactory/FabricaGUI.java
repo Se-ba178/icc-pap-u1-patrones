@@ -1,4 +1,4 @@
-package edu.ups.pap.creacionales;
+package edu.ups.pap.creacionales.abstractFactory;
 
 public interface FabricaGUI {
     Boton crearBoton(); //---> Crear un boton a partir de su metodo 

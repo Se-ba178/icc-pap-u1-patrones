@@ -1,4 +1,4 @@
-package edu.ups.pap.creacionales;
+package edu.ups.pap.creacionales.abstractFactory;
 
 public class AbstractFactoryDemo {
     // Botón claro --

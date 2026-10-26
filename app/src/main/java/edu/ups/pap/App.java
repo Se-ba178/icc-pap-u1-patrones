@@ -3,21 +3,68 @@
  */
 package edu.ups.pap;
 
-import edu.ups.pap.creacionales.AbstractFactoryDemo;
+import java.util.List;
+
+import edu.ups.pap.creacionales.Builder.Pizza;
+import edu.ups.pap.creacionales.Builder.PizzaBuilder;
+import edu.ups.pap.creacionales.Prototype.PlantillaEmail;
+// import edu.ups.pap.factoryMethod.Importador;
+// import edu.ups.pap.factoryMethod.ImportadorPuntoComa;
+// import edu.ups.pap.factoryMethod.ImportadorTabulacion;
+
+// import edu.ups.pap.creacionales.AbstractFactoryDemo;
 
 public class App {
     public String getGreeting() {
-        return "-----------Trabajo en Casa Programación Aplicada -----------" ;
+        return "-----------Trabajo  Programación Aplicada -----------" ;
     }
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        runAbstractFactory();
+        // runAbstractFactory();
+        // runFactoryMethod();
+        // runPrototype();
+        runBuilder();
     }
 
-    public static void  runAbstractFactory(){
-        AbstractFactoryDemo.ejecutar();
+    private static void runBuilder() {
+        Pizza pizza = new PizzaBuilder()
+        .addIng("Jamon")
+        .setSize("Large")
+        .addIng("Queso")
+        .addIng("Salami")
+        .build();
+
+        Pizza pizza2 = new PizzaBuilder()
+        .addIng("Queso")
+        .setSize("mediana")
+        .build();
+
+
+        System.out.println(pizza.descripcion());
+
     }
+
+    // private static void runPrototype() {
+    //     PlantillaEmail  plantillaEmail = new PlantillaEmail("Aviso", "Pedido listo ");
+    //     PlantillaEmail  plantillaEmailSolicitudes = plantillaEmail.clone();
+
+    //     plantillaEmail.cambiarAsunto("Solicitud");
+   
+    //     System.out.println(plantillaEmailSolicitudes.contenido());
+    //     System.out.println(plantillaEmail); 
+    // }
+
+    // private static void runFactoryMethod() {
+    //     Importador impPc = new ImportadorPuntoComa();
+    //     Importador impT = new ImportadorTabulacion();    
+    //     System.out.println(impPc.importacion(List.of("S01 ;22.5;C", "S02;18;C")));
+    //     System.out.println(impT.importacion(List.of("S01\t22.5\tC","S02\t18\tC")));
+    // }
+    // public static void  runAbstractFactory(){
+    //     AbstractFactoryDemo.ejecutar();
+    // }
+
 
 
 }
