@@ -11,6 +11,11 @@ import edu.ups.pap.creacionales.Prototype.PlantillaEmail;
 // import edu.ups.pap.factoryMethod.Importador;
 // import edu.ups.pap.factoryMethod.ImportadorPuntoComa;
 // import edu.ups.pap.factoryMethod.ImportadorTabulacion;
+import edu.ups.pap.creacionales.practica.configuracion.Configuracion;
+import edu.ups.pap.creacionales.practica.creadores.CreadorPedido;
+import edu.ups.pap.creacionales.practica.creadores.CreadorPedidoEnLinea;
+import edu.ups.pap.creacionales.practica.creadores.CreadorPedidoPresencial;
+import edu.ups.pap.creacionales.practica.pedidos.Pedido;
 
 // import edu.ups.pap.creacionales.AbstractFactoryDemo;
 
@@ -24,26 +29,67 @@ public class App {
         // runAbstractFactory();
         // runFactoryMethod();
         // runPrototype();
-        runBuilder();
-    }
-
-    private static void runBuilder() {
-        Pizza pizza = new PizzaBuilder()
-        .addIng("Jamon")
-        .setSize("Large")
-        .addIng("Queso")
-        .addIng("Salami")
-        .build();
-
-        Pizza pizza2 = new PizzaBuilder()
-        .addIng("Queso")
-        .setSize("mediana")
-        .build();
-
-
-        System.out.println(pizza.descripcion());
+        // runBuilder();
+        runTrabajo();
 
     }
+
+    private static void runTrabajo() {
+        Configuracion config = Configuracion.getInstancia();
+
+        System.out.println("Configuracion del sistema");
+        System.out.println("Impuesto: " + config.getImpuesto() + "%");
+
+        System.out.println();
+
+        CreadorPedido creadorPresencial = new CreadorPedidoPresencial();
+        
+        // pedido presencial
+        Pedido presencial = creadorPresencial.crearPedido("P001", "Ana Torres", 100.00);
+
+        System.out.println("--- Pedido presencial ---");
+        presencial.procesar();
+        presencial.mostrarInformacion();
+        presencial.generarComprobante();
+
+        System.out.println();
+
+        // Crear pedido en linea
+        CreadorPedido creadorEnLinea = new CreadorPedidoEnLinea();
+
+        Pedido enLinea = creadorEnLinea.crearPedido("P002", "Juan Perez", 200.00);
+
+        System.out.println("--- Pedido en linea ---");
+        enLinea.procesar();
+        enLinea.mostrarInformacion();
+        enLinea.generarComprobante();
+
+        System.out.println();
+      
+        Configuracion config2 = Configuracion.getInstancia();
+
+        System.out.println("Configuracion compartida: " + (config == config2));
+        
+        
+    }
+
+    // private static void runBuilder() {
+    //     Pizza pizza = new PizzaBuilder()
+    //     .addIng("Jamon")
+    //     .setSize("Large")
+    //     .addIng("Queso")
+    //     .addIng("Salami")
+    //     .build();
+
+    //     Pizza pizza2 = new PizzaBuilder()
+    //     .addIng("Queso")
+    //     .setSize("mediana")
+    //     .build();
+
+
+    //     System.out.println(pizza.descripcion());
+
+    // }
 
     // private static void runPrototype() {
     //     PlantillaEmail  plantillaEmail = new PlantillaEmail("Aviso", "Pedido listo ");
