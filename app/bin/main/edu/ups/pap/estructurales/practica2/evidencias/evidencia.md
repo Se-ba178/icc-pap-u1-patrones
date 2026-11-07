@@ -1,4 +1,10 @@
 ### Pruebas obligatorias
+
+Nombre ; Christian Villa
+
+Fecha :  6/11/2026
+
+
 En la clase AppNotificaciones, implementar los siguientes casos. Los estudiantes deberán determinar cómo instanciar y combinar los objetos necesarios.
 
 ### Caso 1. Notificación académica por correo electrónico
