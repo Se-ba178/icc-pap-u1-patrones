@@ -1,0 +1,32 @@
+package edu.ups.pap.comportamiento.stateDos;
+
+public class Pedido {
+    
+    private EstadoPedido estado= new Pendiente();
+
+    public void changeStare(EstadoPedido nuevo){
+        this.estado=nuevo;
+    }
+
+    public void pagar( ){
+        estado.pagar(this);
+    }
+    public void enviar( ){
+        estado.enviar(this);
+    }
+
+    public void entregar( ){
+        estado.entregar(this);
+    }
+    public void cancelar( ){
+        estado.cancelar(this);
+    }
+
+
+    public String getState(){
+        return estado.nombre();
+        
+    }
+}
+    
+
