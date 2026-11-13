@@ -17,12 +17,7 @@ public class AppObserver {
         //     if(!guardada.equals(producto.getCodigo())){
         //         System.out.println("El codigo viejo es  ; " + guardada + " " +  "El codigo nuevo es :  " + producto.getCodigo());
         //     }
-            
-
         // });
-
-        
-
         producto.suscribir(cP -> {
             System.out.println("Se identifico el codigo");
             System.out.println("Se modifico el " + cP.atributo());
